@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<nav class="cc-navbar navbar navbar-expand-lg navbar-dark ">
+  <div class="container-fluid">
+       <img src="{% static 'img/logo.PNG' %}"
+                    style="width: 100px;" alt="logo">
+    <a class="navbar-brand fw-bolder mx-4 py-3" href="#"> Bienvenue <span  style="text-transform:uppercase">{{ user.username }} </span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item pe-4">
+          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+        </li>
+        <li class="nav-item pe-4">
+          <a class="nav-link active" href="#">Profil</a>
+        </li>
+        <li class="nav-item pe-4">
+          <a class="nav-link active" href="#">Demande de Certificat</a>
+        </li>
+          <li class="nav-item pe-4">
+          <a class="nav-link active" href="#">Signature</a>
+        </li>
+        </li>
+          <li class="nav-item pe-4">
+          <a class="nav-link active" href="#">Contacts</a>
+        </li>
+
+           {% if user.is_authenticated %}
+          <li class="nav-item pe-4">
+          <a class="btn btn-order rounded-0" href="#">Deconnexion</a>
+        </li>
+          {% else %}
+          <li class="nav-item pe-4">
+          <a class="btn btn-order rounded-0" href="#">connexion</a>
+        </li>
+          {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+    {% block content1 %}
+    {% endblock %}
+{% endblock %}
+

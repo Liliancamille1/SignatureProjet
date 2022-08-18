@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+{% for message in messages %}
+     <strong>  {{ message }} </strong>
+{% endfor %}
+
+
+<section class="h-100 gradient-form" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+
+                <div class="text-center">
+                  <img src="{% static 'img/logo.PNG' %}"
+                    style="width: 100px;" alt="logo">
+                  <h4 class="mt-1 mb-5 pb-1">Nous sommes le Groupe ITS</h4>
+                </div>
+
+
+                  <p>Please create your account</p>
+
+                  <form method="post" action="/register">{% csrf_token %}
+
+                <div class="form-outline mb-4">
+                  <input type="text" name="username" id="username" placeholder="Enter your username" class="form-control form-control-lg" required />
+                  <label class="form-label" for="username">Your Name</label>
+                </div>
+
+                    <div class="form-outline mb-4">
+                  <input type="text" name="firstname" id="firstname" placeholder="Enter your firstname" class="form-control form-control-lg" required />
+                  <label class="form-label" for="firstname">Your Firstname</label>
+                </div>
+
+                    <div class="form-outline mb-4">
+                  <input type="text" name="lastname" id="lastname" placeholder="Enter your lastname" class="form-control form-control-lg" required />
+                  <label class="form-label" for="lastname">Your Lastname</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <select class="form-select" name="entreprise" id="Entreprise" aria-label="Default select example">
+                        <option selected>Choose Your Compagny</option>
+                        {% for entreprise in entreprise %}
+                        <option >{{ entreprise.NomE }}</option>
+                        {% endfor %}
+                    </select>
+                    <label class="form-label" for="entreprise">Your Company</label>
+
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" name="email" id="Email"  placeholder="Enter your email" class="form-control form-control-lg" required/>
+                  <label class="form-label" for="email">Your Email</label>
+                </div>
+
+                      <div class="form-outline mb-4">
+                  <input type="text" name="tel" id="Tel"  placeholder="Enter your Phone Number" class="form-control form-control-lg" required/>
+                  <label class="form-label" for="email">Your Phone Number</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <select class="form-select" name="sexe" id="Sexe" aria-label="Default select example">
+                        <option selected>Choose Your Gender</option>
+                        <option value="Masculin">Masculin</option>
+                        <option value="Feminin">Feminin</option>
+                    </select>
+                    <label class="form-label" for="sexe">Your Gender</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input name="date" id="Date" class="form-control" type="date" placeholder="Enter Your Birthday"/>
+                    <label class="form-label" for="date">Your Birthday</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" name="password" id="password"  placeholder="Enter your password" class="form-control form-control-lg" required/>
+                  <label class="form-label" for="password">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" name="password1" id="password1" placeholder="Enter your password confirm" class="form-control form-control-lg" required/>
+                  <label class="form-label" for="password1">Repeat your password</label>
+                </div>
+
+                 <div class="text-center pt-1 mb-5 pb-1">
+                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Enregistrer</button>
+
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-black px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">Nous sommes plus qu'une entreprise</h4>
+                <p class="small mb-0">Le Groupe ITS  est un groupe d’entreprises spécialisées dans le domaine du numérique en général, avec des activités orientées vers la sécurité numérique,
+                    les investigations numériques, la gouvernance des systèmes numériques et l’audit des systèmes numériques.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
